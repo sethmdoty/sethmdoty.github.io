@@ -42,7 +42,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "*import_posts*", "**/pandoc_ipynb/inputs/*", ".nox/*", "README.md"]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -56,6 +56,7 @@ html_theme = "pydata_sphinx_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_extra_path = ["feed.xml"]
 
 def setup(app):
     app.add_css_file("custom.css")
@@ -77,7 +78,18 @@ html_theme_options = {
     # this gets removed to so you can add one to the top "navbar" instead
     "navbar_end": ["navbar-icon-links.html", "search-field.html"]
 }
-
+blog_baseurl = 'https://sethdoty.dev'
+blog_feed_templates = {
+      # Use defaults, no templates
+      "atom": {},
+      # Create content text suitable posting to social media
+      "social": {
+         # Format tags as hashtags and append to the content
+         "content": "{{ title }}{% for tag in post.tags %}"
+         " #{{ tag.name|trim()|replace(' ', '') }}"
+         "{% endfor %}",
+      },
+}
 # blog_feed_fulltext: Choose to display full text in blog feeds.
 blog_feed_fulltext = True
 
