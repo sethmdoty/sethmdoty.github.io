@@ -1,0 +1,6 @@
+_build
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.tox
+.nox
