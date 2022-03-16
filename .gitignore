@@ -7,3 +7,4 @@ _build
 
 .doctrees/*
 _website/*
+__pycache__/*
