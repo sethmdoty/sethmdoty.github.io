@@ -4,3 +4,6 @@ _build
 */.ipynb_checkpoints/*
 .tox
 .nox
+
+.doctrees/*
+_website/*
