@@ -19,7 +19,7 @@
 
 project = 'sethdoty.dev'
 copyright = '2022, Seth Doty'
-author = 'Seth Doty'
+author = 'Seth'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
@@ -33,6 +33,8 @@ release = '1.0'
 extensions = [
 "ablog",
 "sphinx.ext.intersphinx",
+"sphinx_sitemap",
+"sphinx_fontawesome",
 "sphinx_panels",
 ]
 
@@ -79,6 +81,8 @@ html_theme_options = {
     "navbar_end": ["navbar-icon-links.html", "search-field.html"]
 }
 blog_baseurl = 'https://sethdoty.dev'
+blog_feed_archives = True
+
 blog_feed_templates = {
       # Use defaults, no templates
       "atom": {},
@@ -90,8 +94,6 @@ blog_feed_templates = {
          "{% endfor %}",
       },
 }
-# blog_feed_fulltext: Choose to display full text in blog feeds.
-blog_feed_fulltext = True
 
 # Glob pattern that grabs all posts so you don't need to specify which posts are blog posts in each post
 # This pattern facilitates a folder structure such as posts/2020/my-awesome-post.rst
@@ -108,3 +110,5 @@ post_auto_image = 1
 # post_auto_excerpt: Number of paragraphs (default is 1) that will be displayed as an excerpt from the post. Setting
 # this 0 will result in displaying no post excerpt in archive pages.
 post_auto_excerpt = 3
+
+fontawesome_link_cdn = "https://pro.fontawesome.com/releases/v5.13.0/css/all.css"

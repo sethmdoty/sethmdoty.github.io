@@ -2,3 +2,5 @@ ablog
 pydata-sphinx-theme
 sphinx
 sphinx-panels
+sphinx-sitemap
+sphinx-fontawesome
