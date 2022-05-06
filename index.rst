@@ -10,7 +10,6 @@ Recent Posts
    :hidden:
 
    about
-   resume
 
 .. postlist:: 10
    :author: sdoty
