@@ -66,6 +66,7 @@ def setup(app):
 html_sidebars = {
     "index": ["aboutme.html"],
     "about": ["aboutme.html"],
+    "resume": ["resume.html"],
     "blog": ["tagcloud.html", "archives.html"],
     "blog/**": ["postcard.html", "recentposts.html", "archives.html"],
 }
