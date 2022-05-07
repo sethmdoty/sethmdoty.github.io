@@ -13,6 +13,7 @@ nox = "^2022.1.7"
 nox-poetry = "^0.9.0"
 sphinx-sitemap = "^2.2.0"
 sphinx_fontawesome = "^0.0.6"
+myst-parser = "^0.17.2"
 
 [tool.poetry.dev-dependencies]
 

@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'sethdoty.dev'
-copyright = '2022, Seth Doty'
-author = 'Seth'
+project = "sethdoty.dev"
+copyright = "2022, Seth Doty"
+author = "Seth"
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = "1.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,21 +30,32 @@ release = '1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-"ablog",
-"sphinx.ext.intersphinx",
-"sphinx_sitemap",
-"sphinx_fontawesome",
-"sphinx_panels",
+extensions = ["ablog", "sphinx.ext.intersphinx", "sphinx_sitemap", "sphinx_fontawesome", "sphinx_panels", "myst_parser"]
+
+# myst extensions to enable
+myst_enable_extensions = [
+    "html_admonition",
+    "html_image",
+    "linkify",
 ]
+myst_update_mathjax = False
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', "*import_posts*", "**/pandoc_ipynb/inputs/*", ".nox/*", "README.md"]
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "*import_posts*",
+    "**/pandoc_ipynb/inputs/*",
+    ".nox/*",
+    "README.md",
+    "posts/*/.ipynb_checkpoints/*",
+]
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -57,11 +68,13 @@ html_theme = "pydata_sphinx_theme"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 html_extra_path = ["feed.xml"]
+
 
 def setup(app):
     app.add_css_file("custom.css")
+
 
 html_sidebars = {
     "index": ["aboutme.html"],
@@ -78,21 +91,21 @@ html_theme_options = {
     "search_bar_text": "Search for wisdom...",
     # By default your site will have a search bar in the nav bar, but when we include the about.html,
     # this gets removed to so you can add one to the top "navbar" instead
-    "navbar_end": ["navbar-icon-links.html", "search-field.html"]
+    "navbar_end": ["navbar-icon-links.html", "search-field.html"],
 }
-blog_baseurl = 'https://sethdoty.dev'
+blog_baseurl = "https://sethdoty.dev"
 blog_feed_archives = True
 
 blog_feed_templates = {
-      # Use defaults, no templates
-      "atom": {},
-      # Create content text suitable posting to social media
-      "social": {
-         # Format tags as hashtags and append to the content
-         "content": "{{ title }}{% for tag in post.tags %}"
-         " #{{ tag.name|trim()|replace(' ', '') }}"
-         "{% endfor %}",
-      },
+    # Use defaults, no templates
+    "atom": {},
+    # Create content text suitable posting to social media
+    "social": {
+        # Format tags as hashtags and append to the content
+        "content": "{{ title }}{% for tag in post.tags %}"
+        " #{{ tag.name|trim()|replace(' ', '') }}"
+        "{% endfor %}",
+    },
 }
 
 # Glob pattern that grabs all posts so you don't need to specify which posts are blog posts in each post
